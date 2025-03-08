@@ -13,6 +13,7 @@ In the future, other data structures (e.g., `List`, `Tree`, `Graph`, etc.) will 
 
 Below is a simplified view of the directory structure (omitting build artifacts and other automatically generated files):
 
+```bash 
 .
 ├── hello_world.cpp
 ├── queue
@@ -32,6 +33,7 @@ Below is a simplified view of the directory structure (omitting build artifacts 
     │   └── stack.cpp
     └── tests
         └── test_stack.cpp
+```
 
 Each data structure (such as `queue` or `stack`) has:
 
