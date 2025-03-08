@@ -5,24 +5,20 @@
 using namespace std;
 
 void testStack() {
-    cout << "Iniciando testes com assert...\n";
+    cout << "Starting assert tests...\n";
 
-    // Teste 1: Verificar se a pilha está vazia após a criação.
     Stack s;
     assert(s.isEmpty());
-    cout << "Teste 1 passou: A pilha está vazia após a criação.\n";
+    cout << "Test 1 passed: The stack is empty after creation.\n";
 
-    // Teste 2: Após inserir um elemento, a pilha não deve estar vazia.
     s.push(10);
     assert(!s.isEmpty());
-    cout << "Teste 2 passou: A pilha não está vazia após o push.\n";
+    cout << "Test 2 passed: The stack is not empty after push.\n";
 
-    // Teste 3: O valor retornado pelo pop deve ser o esperado.
-    int valor = s.pop();
-    assert(valor == 10);
-    cout << "Teste 3 passou: pop() retornou 10.\n";
+    int value = s.pop();
+    assert(value == 10);
+    cout << "Test 3 passed: pop() returned 10.\n";
 
-    // Teste 4: Remover de uma pilha vazia deve lançar exceção.
     bool exceptionCaught = false;
     try {
         s.pop();
@@ -30,17 +26,15 @@ void testStack() {
         exceptionCaught = true;
     }
     assert(exceptionCaught);
-    cout << "Teste 4 passou: pop() lançou exceção ao tentar remover de uma pilha vazia.\n";
+    cout << "Test 4 passed: pop() threw an exception when trying to pop from an empty stack.\n";
 
-    // Teste 5: Preencher a pilha até o limite e verificar se está cheia.
     Stack s2;
     for (int i = 0; i < MAX_SIZE; i++) {
         s2.push(i);
     }
     assert(s2.isFull());
-    cout << "Teste 5 passou: A pilha está cheia após inserir " << MAX_SIZE << " elementos.\n";
+    cout << "Test 5 passed: The stack is full after inserting " << MAX_SIZE << " elements.\n";
 
-    // Teste 6: Tentar inserir um elemento em uma pilha cheia deve lançar exceção.
     exceptionCaught = false;
     try {
         s2.push(999);
@@ -48,9 +42,9 @@ void testStack() {
         exceptionCaught = true;
     }
     assert(exceptionCaught);
-    cout << "Teste 6 passou: push() lançou exceção ao tentar inserir em pilha cheia.\n";
+    cout << "Test 6 passed: push() threw an exception when trying to push onto a full stack.\n";
 
-    cout << "\nTodos os testes passaram com sucesso!\n";
+    cout << "\nAll tests passed successfully!\n";
 }
 
 int main() {
