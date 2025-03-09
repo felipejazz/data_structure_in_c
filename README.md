@@ -7,6 +7,7 @@ This repository is intended for studying and implementing data structures in C++
 - **Linked Queue**
 - **Linked Stack**
 - **Hash Table**
+- **Tree**
 
 
 In the future, other data structures (e.g., `List`, `Tree`, `Graph`, etc.) will be added following the exact same folder organization—only the data-structure-specific names will change.
@@ -20,51 +21,22 @@ Below is a simplified view of the directory structure (omitting build artifacts 
 ```bash 
 .
 ├── HashTable
-│ 
+│   ├── CMakeLists.txt
 │   ├── include
 │   │   ├── BaseObject.hpp
+│   │   ├── CMakeLists.txt
 │   │   └── HashTable.hpp
 │   ├── src
 │   │   ├── BaseObject.cpp
+│   │   ├── CMakeLists.txt
 │   │   └── HashTable.cpp
 │   └── tests
-│     
+│       ├── CMakeLists.txt
 │       └── TestHashTable.cpp
-├── LinkedQueue
-│ 
-│   ├── include
-│   │   ├── LinkedQueue.hpp
-│   │   └── NodeType.hpp
-│   ├── src
-│   │   └── LinkedQueue.cpp
-│   └── tests
-│       ├── TestLinkedQueue.cpp
-│       └── test_new_override.cpp
-├── LinkedStack
-│ 
-│   ├── include
-│   │   ├── LinkedStack.hpp
-│   │   └── NodeType.hpp
-│   ├── src
-│   │   └── LinkedStack.cpp
-│   └── tests
-│       ├── TestLinkedStack.cpp
-│       └── test_new_override.cpp
-├── queue
-│   ├── include
-│   │   ├── itemType.hpp
-│   │   └── queue.hpp
-│   ├── src
-│   │   └── queue.cpp
-│   └── tests
-│       └── test_queue.cpp
-└── stack
-    ├── include
-    │   └── stack.hpp
-    ├── src
-    │   └── stack.cpp
-    └── tests
-        └── test_stack.cpp
+.
+.
+.
+
 
 ```
 
@@ -84,7 +56,9 @@ For each data structure, you can compile and run tests by following these steps:
 1. **Navigate** to the specific data structure’s directory (e.g., `queue/` or `stack/`).
 2. **Enter** the `build` directory within that data structure, for example:
    ```bash
-   cd queue/build
+   cd queue
+   mkdir build
+   cd build
     ```
 Run CMake to generate the build files:
    ```bash
@@ -110,19 +84,6 @@ Navigational Guide
     <data_structure>/tests: Test files using assert statements.
     <data_structure>/build: Compiled artifacts are generated here after running cmake .. && make.
 
-Pre-commit Hooks and README Updates
-
-We use pre-commit hooks to automatically update documentation (such as the README) whenever new data structures are added or existing structures are modified. To set this up:
-
-    Install the pre-commit tool (e.g., via pip install pre-commit or your preferred package manager).
-    In the root directory of this repository, run:
-```bash
-    pre-commit install
-```
-    A script or hook can be configured (for example, in .pre-commit-config.yaml) that automatically updates the README with new data structure names as they are added. Each commit will then keep the documentation in sync with the code base.
-
-The pre-commit scripts can be expanded or adjusted to handle other formatting, linting, and code-quality tasks as needed.
-Requirements
 
 To build and run this project, you need:
 
