@@ -1,5 +1,5 @@
-#ifndef STACK_HPP
-#define STACK_HPP
+#ifndef LINKED_STACK_HPP
+#define LINKED_STACK_HPP
 #include "NodeType.hpp"
 
 class LinkedStack  {
