@@ -4,6 +4,10 @@ This repository is intended for studying and implementing data structures in C++
 
 - **Queue**
 - **Stack**
+- **Linked Queue**
+- **Linked Stack**
+- **Hash Table**
+
 
 In the future, other data structures (e.g., `List`, `Tree`, `Graph`, etc.) will be added following the exact same folder organization—only the data-structure-specific names will change.
 
@@ -15,27 +19,56 @@ Below is a simplified view of the directory structure (omitting build artifacts 
 
 ```bash 
 .
-├── hello_world.cpp
+├── HashTable
+│ 
+│   ├── include
+│   │   ├── BaseObject.hpp
+│   │   └── HashTable.hpp
+│   ├── src
+│   │   ├── BaseObject.cpp
+│   │   └── HashTable.cpp
+│   └── tests
+│     
+│       └── TestHashTable.cpp
+├── LinkedQueue
+│ 
+│   ├── include
+│   │   ├── LinkedQueue.hpp
+│   │   └── NodeType.hpp
+│   ├── src
+│   │   └── LinkedQueue.cpp
+│   └── tests
+│       ├── TestLinkedQueue.cpp
+│       └── test_new_override.cpp
+├── LinkedStack
+│ 
+│   ├── include
+│   │   ├── LinkedStack.hpp
+│   │   └── NodeType.hpp
+│   ├── src
+│   │   └── LinkedStack.cpp
+│   └── tests
+│       ├── TestLinkedStack.cpp
+│       └── test_new_override.cpp
 ├── queue
-│   ├── build
-│   ├── include
-│   │   ├── itemType.hpp
-│   │   └── queue.hpp
-│   ├── src
-│   │   └── queue.cpp
-│   └── tests
-│       └── test_queue.cpp
+│   ├── include
+│   │   ├── itemType.hpp
+│   │   └── queue.hpp
+│   ├── src
+│   │   └── queue.cpp
+│   └── tests
+│       └── test_queue.cpp
 └── stack
-    ├── build
     ├── include
-    │   └── stack.hpp
+    │   └── stack.hpp
     ├── src
-    │   └── stack.cpp
+    │   └── stack.cpp
     └── tests
         └── test_stack.cpp
+
 ```
 
-Each data structure (such as `queue` or `stack`) has:
+Each data structure has:
 
 - A `build` folder (where build and compilation files are generated).
 - An `include` folder (where header files reside).

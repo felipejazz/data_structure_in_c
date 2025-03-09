@@ -2,10 +2,8 @@
 #include <new>
 #include <stdexcept>
 
-// Flag para simular a falha de alocação.
 bool simulateAllocationFailure = false;
 
-// Redefinição global do operador new para o escopo do teste.
 void* operator new(std::size_t size) {
     if (simulateAllocationFailure) {
         throw std::bad_alloc();
