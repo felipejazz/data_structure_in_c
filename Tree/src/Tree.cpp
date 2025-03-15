@@ -18,9 +18,9 @@ bool Tree::isFull() const {
     try {
         location = new NodeType;
         delete location;
-        return true;
-    } catch (std::bad_alloc expcetion){
         return false;
+    } catch (std::bad_alloc expcetion){
+        return true;
     };
 };
 

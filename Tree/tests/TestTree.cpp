@@ -10,7 +10,10 @@ void testTree() {
     cout << "Starting tests for Tree..." << endl;
     
     Tree tree;
-    
+    // Check if the tree is initially empty
+    assert(tree.isEmpty());
+    assert(!tree.isFull());
+    cout << "Test 0: Confirmed that the tree is empty at the start." << endl;
     // Test 1: Insertion - Insert multiple objects
     try {
         tree.insertObject(BaseObject(10, "Object10"));
