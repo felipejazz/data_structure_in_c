@@ -8,6 +8,7 @@ This repository is intended for studying and implementing data structures in C++
 - **Linked Stack**
 - **Hash Table**
 - **Tree**
+- **AVL Tree**
 
 
 In the future, other data structures (e.g., `List`, `Tree`, `Graph`, etc.) will be added following the exact same folder organization—only the data-structure-specific names will change.
