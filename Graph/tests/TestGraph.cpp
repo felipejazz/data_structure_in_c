@@ -41,7 +41,7 @@ void testGraph() {
     assert(!q.isEmpty());
     Vertex v1 = q.dequeue();
     Vertex v2 = q.dequeue();
-    // Considering the vertices were added in order, binary search returns vertices with id 20 and 30.
+    // Considering the vertices were added in ascending order, the binary search returns 20, then 30.
     assert(v1.getId() == 20);
     assert(v2.getId() == 30);
     assert(q.isEmpty());
@@ -49,7 +49,35 @@ void testGraph() {
     cout << "Test 5: Printing adjacency matrix:" << endl;
     g.printMatrix();
 
-    cout << "Graph tests completed successfully!" << endl;
+    // --------------------------------------------------------------
+    // TEST 6: Depth-First Search (DFS)
+    // --------------------------------------------------------------
+    cout << "Test 6: Depth-First Search (DFS) from 10 to 50." << endl;
+    bool foundDFS = g.depthFirstSearch(g, Vertex(10), Vertex(50));
+    assert(foundDFS && "DFS should find a path from 10 to 50");
+    cout << "Test 6 passed: DFS found a path from 10 to 50." << endl;
+
+    // Also check a vertex that doesn't exist
+    cout << "Test 6.1: DFS from 10 to 999 (non-existent) => Expect not found." << endl;
+    bool foundDFS2 = g.depthFirstSearch(g, Vertex(10), Vertex(999));
+    assert(!foundDFS2 && "DFS should NOT find a path from 10 to 999");
+    cout << "Test 6.1 passed: DFS did not find a path to a non-existent vertex." << endl;
+
+    // --------------------------------------------------------------
+    // TEST 7: Breadth-First Search (BFS)
+    // --------------------------------------------------------------
+    cout << "Test 7: Breadth-First Search (BFS) from 10 to 50." << endl;
+    bool foundBFS = g.breadthFoundSearch(g, Vertex(10), Vertex(50));
+    assert(foundBFS && "BFS should find a path from 10 to 50");
+    cout << "Test 7 passed: BFS found a path from 10 to 50." << endl;
+
+    // Also check a vertex that doesn't exist
+    cout << "Test 7.1: BFS from 10 to 999 (non-existent) => Expect not found." << endl;
+    bool foundBFS2 = g.breadthFoundSearch(g, Vertex(10), Vertex(999));
+    assert(!foundBFS2 && "BFS should NOT find a path from 10 to 999");
+    cout << "Test 7.1 passed: BFS did not find a path to a non-existent vertex." << endl;
+
+    cout << "\nGraph tests completed successfully!" << endl;
 }
 
 int main() {

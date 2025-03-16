@@ -114,6 +114,75 @@ bool Graph::isMarked(Vertex vertex) {
     return marks[vertexIndex];
 }
 
+
+bool Graph::depthFirstSearch(Graph& graph, Vertex origin, Vertex destination) {
+    Stack<Vertex> vertexStack;
+    bool found = false;
+    Vertex vertex;
+    graph.clearMarks();
+    vertexStack.push(origin);
+
+    do {
+
+        vertex = vertexStack.pop();
+        if (vertex.getId() == destination.getId()) {
+            cout << "Found path to: " << destination.getId() << endl;
+            found = true;
+            break;
+        };
+        if (!graph.isMarked(vertex)) {
+            graph.markVertex(vertex);
+            cout << "Visiting: " << vertex.getId() << endl;
+            Queue<Vertex> adjacents;
+            graph.getAdjacents(vertex, adjacents); 
+            while (!adjacents.isEmpty()) {
+                Vertex adjacent = adjacents.dequeue();
+                if (!graph.isMarked(adjacent)){
+                    cout << "Stacking: " << adjacent.getId() << endl;
+                    vertexStack.push(adjacent);
+                }
+            }
+        }
+
+    } while (!vertexStack.isEmpty());
+
+    return found;
+}
+
+bool Graph::breadthFoundSearch(Graph& graph, Vertex origin, Vertex destination) {
+    Queue<Vertex> vertexQueue;
+    bool found = false;
+    Vertex vertex;
+    graph.clearMarks();
+    vertexQueue.enqueue(origin);
+
+    do {
+
+        vertex = vertexQueue.dequeue();
+        if (vertex.getId() == destination.getId()) {
+            cout << "Found path to: " << destination.getId() << endl;
+            found = true;
+            break;
+        };
+        if (!graph.isMarked(vertex)) {
+            graph.markVertex(vertex);
+            cout << "Visiting: " << vertex.getId() << endl;
+            Queue<Vertex> adjacents;
+            graph.getAdjacents(vertex, adjacents);
+            while (!adjacents.isEmpty()) {
+                Vertex adjacent = adjacents.dequeue();
+                if (!graph.isMarked(adjacent)){
+                    cout << "Stacking: " << adjacent.getId() << endl;
+                    vertexQueue.enqueue(adjacent);
+                }
+            }
+        }
+
+    } while (!vertexQueue.isEmpty());
+
+    return found;
+}
+
 void Graph::printMatrix() {
     for (int i = 0; i < numVertexes; i++) {
         for (int j = 0; j < numVertexes; j++) {

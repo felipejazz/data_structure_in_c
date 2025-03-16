@@ -1,5 +1,6 @@
 #include "Vertex.hpp"
 #include "Queue.hpp"
+#include "Stack.hpp"
 #ifndef GRAPH_HPP
 #define GRAPH_HPP
 
@@ -25,6 +26,9 @@ class Graph {
         void markVertex(Vertex);
         bool isMarked(Vertex);
         void printMatrix();
-};
+        bool depthFirstSearch(Graph&, Vertex, Vertex);
+        bool breadthFoundSearch(Graph&, Vertex, Vertex);
+
+ };
 
 #endif
